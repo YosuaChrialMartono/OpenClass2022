@@ -6,12 +6,24 @@ using UnityEngine.SceneManagement;
 public class GameMaster : MonoBehaviour
 {
 
+    public GameObject gameStartCanvas;
     public GameObject gameOverCanvas;
+    public GameObject scoreCanvas;
 
     private void Start()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 0;
+        gameStartCanvas.SetActive(true);
         gameOverCanvas.SetActive(false);
+        scoreCanvas.SetActive(false);
+        
+    }
+
+    public void GameStart()
+    {
+        gameStartCanvas.SetActive(false);
+        Time.timeScale = 1;
+        scoreCanvas.SetActive(true);
     }
 
     public void GameOver()
